@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CineMate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">🎬 Cine<span>Mate</span></div>
+    <nav>
+        <a class="active" onclick="showPage('home', event)">Home</a>
+        <a onclick="showPage('movies', event)">Movies</a>
+        <a onclick="showPage('tv', event)">TV Shows</a>
+        <a onclick="showPage('fav', event)">Favourites</a>
+    </nav>
+    <div class="nav-right">
+        <input type="text" placeholder="Search..." />
+    </div>
+</header>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active-page">
+
+    <section class="hero">
+        <h1>Discover <span>Great</span> Movies & Shows</h1>
+        <p>Browse thousands of titles, save your favourites.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-box">
+            <h2>10,000+</h2>
+            <p>Movies</p>
+        </div>
+        <div class="stat-box">
+            <h2>5,000+</h2>
+            <p>TV Shows</p>
+        </div>
+        <div class="stat-box">
+            <h2>50+</h2>
+            <p>Genres</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <input type="text" placeholder="Search for a movie or TV show..." />
+        <select>
+            <option>All Genres</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Horror</option>
+            <option>Romance</option>
+            <option>Science Fiction</option>
+            <option>Thriller</option>
+            <option>Animation</option>
+            <option>Documentary</option>
+            <option>Fantasy</option>
+            <option>Adventure</option>
+            <option>Crime</option>
+            <option>Family</option>
+        </select>
+        <select>
+            <option>All Years</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+        </select>
+        <button class="btn-search">Search</button>
+    </section>
+
+    <section class="genres">
+        <button class="pill active">🔥 All</button>
+        <button class="pill">💥 Action</button>
+        <button class="pill">😂 Comedy</button>
+        <button class="pill">🎭 Drama</button>
+        <button class="pill">👻 Horror</button>
+        <button class="pill">🚀 Sci-Fi</button>
+    </section>
+
+    <section class="content-section">
+        <div class="section-header">
+            <h2>🔥 Trending Now</h2>
+            <a href="#" class="view-all">View all →</a>
+        </div>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <div class="card-image">
+                    <span class="badge trending">TRENDING</span>
+                    <div class="placeholder-icon">🎬</div>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="card-image">
+                    <span class="badge trending">TRENDING</span>
+                    <div class="placeholder-icon">🎬</div>
+                </div>
+            </div>
+            <div class="movie-card">
+                <div class="card-image">
+                    <span class="badge trending">TRENDING</span>
+                    <div class="placeholder-icon">🎬</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>⭐ Featured This Week</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Inside Out 2</h3>
+                <p>2024 • Animation</p>
+                <span>⭐ 7.6</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Get Out</h3>
+                <p>2017 • Horror</p>
+                <span>⭐ 7.7</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>La La Land</h3>
+                <p>2016 • Romance</p>
+                <span>⭐ 8.0</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Harry Potter</h3>
+                <p>2001-2011 • Fantasy</p>
+                <span>⭐ 7.6</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Frozen II</h3>
+                <p>2019 • Animation</p>
+                <span>⭐ 7.0</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Black Panther</h3>
+                <p>2018 • Action</p>
+                <span>⭐ 7.3</span>
+            </div>
+            <div class="card">
+                <div class="poster"></div>
+                <h3>Game of Thrones</h3>
+                <p>2011-2019 • Fantasy</p>
+                <span>⭐ 9.3</span>
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<!-- MOVIES PAGE -->
+<section id="movies" class="page">
+    <h2 class="section-title">🎬 Movies</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Inside Out 2</h3>
+            <p>2024 • Animation</p>
+            <span>⭐ 7.6</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Get Out</h3>
+            <p>2017 • Horror</p>
+            <span>⭐ 7.7</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>La La Land</h3>
+            <p>2016 • Romance</p>
+            <span>⭐ 8.0</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Inception</h3>
+            <p>2010 • Science Fiction</p>
+            <span>⭐ 8.8</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>The Dark Knight</h3>
+            <p>2008 • Action</p>
+            <span>⭐ 9.0</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Parasite</h3>
+            <p>2019 • Drama</p>
+            <span>⭐ 8.6</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Interstellar</h3>
+            <p>2014 • Science Fiction</p>
+            <span>⭐ 8.6</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Joker</h3>
+            <p>2019 • Thriller</p>
+            <span>⭐ 8.5</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Avengers: Endgame</h3>
+            <p>2019 • Action</p>
+            <span>⭐ 8.4</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Frozen II</h3>
+            <p>2019 • Animation</p>
+            <span>⭐ 7.0</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Black Panther</h3>
+            <p>2018 • Action</p>
+            <span>⭐ 7.3</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>The Lion King</h3>
+            <p>2019 • Animation</p>
+            <span>⭐ 6.9</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Toy Story 4</h3>
+            <p>2019 • Animation</p>
+            <span>⭐ 7.8</span>
+        </div>
+    </div>
+</section>
+
+<!-- TV SHOWS PAGE -->
+<section id="tv" class="page">
+    <h2 class="section-title">📺 TV Shows</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Breaking Bad</h3>
+            <p>2008-2013 • Drama</p>
+            <span>⭐ 9.5</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Stranger Things</h3>
+            <p>2016-2025 • Sci-Fi</p>
+            <span>⭐ 8.7</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Game of Thrones</h3>
+            <p>2011-2019 • Fantasy</p>
+            <span>⭐ 9.3</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>The Mandalorian</h3>
+            <p>2019- • Sci-Fi</p>
+            <span>⭐ 8.8</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>The Witcher</h3>
+            <p>2019- • Fantasy</p>
+            <span>⭐ 8.2</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Friends</h3>
+            <p>1994-2004 • Comedy</p>
+            <span>⭐ 8.9</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>The Office</h3>
+            <p>2005-2013 • Comedy</p>
+            <span>⭐ 8.9</span>
+        </div>
+        <div class="card">
+            <div class="poster"></div>
+            <h3>Harry Potter</h3>
+            <p>2001-2011 • Fantasy</p>
+            <span>⭐ 7.6</span>
+        </div>
+    </div>
+</section>
+
+<!-- FAVOURITES PAGE -->
+<section id="fav" class="page">
+    <h2 class="section-title">❤️ Favourites</h2>
+    <p class="fav-empty">No favourites added yet.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>Cine<span class="highlight">Mate</span></h3>
+            <p>A movie and TV show discovery app built as part of the Web Architectures course.</p>
+        </div>
+        <div class="footer-links">
+            <div class="link-group">
+                <h4>PAGES</h4>
+                <a onclick="showPage('home', event)">Home</a>
+                <a onclick="showPage('movies', event)">Movies</a>
+                <a onclick="showPage('tv', event)">TV Shows</a>
+                <a onclick="showPage('fav', event)">Favourites</a>
+            </div>
+            <div class="link-group">
+                <h4>RESOURCES</h4>
+                <a href="https://github.com/" target="_blank">GitHub Repo</a>
+                <a href="https://www.themoviedb.org/" target="_blank">TMDB API</a>
+                <a href="https://developer.mozilla.org/" target="_blank">MDN Docs</a>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">© 2026 CineMate - Web Architectures Project</p>
+</footer>
+
+<script>
+function showPage(pageId, e) {
+    var event = e || window.event;
+
+    document.querySelectorAll('.page').forEach(function(page) {
+        page.classList.remove('active-page');
+    });
+
+    document.getElementById(pageId).classList.add('active-page');
+
+    document.querySelectorAll('nav a').forEach(function(link) {
+        link.classList.remove('active');
+    });
+
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
+
+    window.scrollTo(0, 0);
+}
+
+// Genre pill toggle
+document.querySelectorAll('.pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+        document.querySelectorAll('.pill').forEach(function(p) {
+            p.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
+});
+</script>
+
+</body>
+</html>
