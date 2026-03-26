@@ -252,6 +252,9 @@ nav a.active {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .badge.trending {
@@ -309,6 +312,9 @@ nav a.active {
     background: linear-gradient(45deg, #2a2f45, #1c2238);
     border-radius: 10px;
     margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .card h3 {
