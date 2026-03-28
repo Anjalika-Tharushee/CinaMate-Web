@@ -75,6 +75,7 @@ nav a.active {
     display: block;
 }
 
+
 /* HERO */
 .hero {
     text-align: center;
@@ -287,11 +288,10 @@ nav a.active {
     background-repeat: no-repeat;
 }
 
-.badge.trending {
+.badge {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: linear-gradient(45deg, #e41459, #c44569, #ff6b9d);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 800;
@@ -299,6 +299,43 @@ nav a.active {
     border-radius: 6px;
     letter-spacing: 0.5px;
     font-family: 'Poppins', sans-serif;
+}
+
+.badge.trending {
+    background: linear-gradient(45deg, #e41459, #c44569, #ff6b9d);
+}
+
+.badge.new {
+    background: #22c55e;
+}
+
+.badge.top {
+    background: #f59e0b;
+}
+
+.badge.classic {
+    background: #0ea5e9;
+}
+
+.rating {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.rating.high {
+    background: #16a34a;
+}
+
+.rating.mid {
+    background: #f59e0b;
+}
+
+.rating.low {
+    background: #dc2626;
 }
 
 .placeholder-icon {
@@ -445,4 +482,89 @@ footer {
     font-weight: 400;
     border-top: 1px solid #1f263d;
     padding-top: 1.5rem;
+}
+
+.card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.detail-page {
+    padding: 40px 5%;
+}
+
+.detail-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.detail-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    background: #10131f;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.detail-image {
+    min-height: 420px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.detail-image .badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+}
+
+.detail-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-info h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.detail-meta,
+.detail-specs p {
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.detail-description {
+    color: #cbd5e1;
+    line-height: 1.9;
+}
+
+.detail-specs {
+    display: grid;
+    gap: 10px;
+}
+
+.btn-back {
+    display: inline-block;
+    width: fit-content;
+    background: linear-gradient(45deg, #e41459, #c44569, #ff6b9d);
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.detail-error {
+    padding: 40px;
+    text-align: center;
+    color: #ffffff;
 }
