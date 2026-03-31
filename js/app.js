@@ -1,4 +1,6 @@
-// Data arrays for movies and TV shows
+// ================= DATA =================
+
+// Movies
 const movies = [
   { id: 1, title: "Inside Out 2", year: 2024, rating: 7.6, genre: "Animation", badge: "trending", type: "movie", image: "images/insideout2.jpeg" },
   { id: 2, title: "Get Out", year: 2017, rating: 7.7, genre: "Horror", badge: "trending", type: "movie", image: "images/getout.jpeg" },
@@ -16,6 +18,7 @@ const movies = [
   { id: 14, title: "Toy Story 4", year: 2019, rating: 7.8, genre: "Animation", badge: "new", type: "movie", image: "images/toy4.jpeg" }
 ];
 
+// TV Shows
 const tvShows = [
   { id: 101, title: "Breaking Bad", year: "2008-2013", rating: 9.5, genre: "Drama", badge: "top", type: "tv", image: "images/breakingbad.jpeg" },
   { id: 102, title: "Stranger Things", year: "2016-2025", rating: 8.7, genre: "Sci-Fi", badge: "trending", type: "tv", image: "images/strangerthinngs5.jpeg" },
@@ -23,87 +26,106 @@ const tvShows = [
   { id: 104, title: "The Mandalorian", year: "2019-", rating: 8.8, genre: "Sci-Fi", badge: "new", type: "tv", image: "images/mandalorian.jpeg" },
   { id: 105, title: "The Witcher", year: "2019-", rating: 8.2, genre: "Fantasy", badge: "new", type: "tv", image: "images/witcher.jpeg" },
   { id: 106, title: "Friends", year: "1994-2004", rating: 8.9, genre: "Comedy", badge: null, type: "tv", image: "images/friend.jpeg" },
-  { id: 107, title: "The Office", year: "2005-2013", rating: 8.9, genre: "Comedy", badge: "top", type: "tv", image: "images/office.jpeg" },
-  { id: 108, title: "Harry Potter", year: "2001-2011", rating: 7.6, genre: "Fantasy", badge: null, type: "tv", image: "images/harrypotter.jpeg" }
+  { id: 107, title: "The Office", year: "2005-2013", rating: 8.9, genre: "Comedy", badge: "top", type: "tv", image: "images/office.jpeg" }
 ];
 
+// ================= HELPERS =================
+
+// rating color
 function getRatingClass(rating) {
-  if (rating >= 8.5) {
-    return "high";
-  } else if (rating >= 6.0) {
-    return "mid";
-  } else {
-    return "low";
+  if (rating >= 8.5) return "high";
+  if (rating >= 6) return "mid";
+  return "low";
+}
+
+// badge UI
+function getBadgeHTML(badge) {
+  if (!badge) return "";
+  return `<span class="badge ${badge}">${badge.toUpperCase()}</span>`;
+}
+
+// ================= LINK MAPPING =================
+
+function getLink(title) {
+  switch (title) {
+    case "Inception": return "descriptions/inception.html";
+    case "Get Out": return "descriptions/getout.html";
+    case "La La Land": return "descriptions/lalaland.html";
+    case "Inside Out 2": return "descriptions/insideout2.html";
+    case "The Dark Knight": return "descriptions/darknight.html";
+    case "Parasite": return "descriptions/parasite.html";
+    case "Interstellar": return "descriptions/intersteller.html";
+    case "Joker": return "descriptions/joker.html";
+    case "Black Panther": return "descriptions/blackpather.html";
+    case "Frozen II": return "descriptions/frozen2.html";
+    case "The Lion King": return "descriptions/lionking.html";
+    case "Titanic": return "descriptions/titanic.html";
+    case "Toy Story 4": return "descriptions/toys4.html";
+
+    // TV
+    case "Breaking Bad": return "descriptions/breakingbad.html";
+    case "Stranger Things": return "descriptions/strongerthinngs5.html";
+    case "Game of Thrones": return "descriptions/got.html";
+    case "The Mandalorian": return "descriptions/mandalorian.html";
+    case "The Witcher": return "descriptions/witcher.html";
+    case "Friends": return "descriptions/friends.html";
+    case "The Office": return "descriptions/office.html";
+
+    default: return "#";
   }
 }
 
-function getBadgeHTML(badge) {
-  switch (badge) {
-    case "trending":
-      return `<span class="badge trending">Trending</span>`;
-    case "new":
-      return `<span class="badge new">New</span>`;
-    case "top":
-      return `<span class="badge top">Top</span>`;
-    case "classic":
-      return `<span class="badge classic">Classic</span>`;
-    default:
-      return "";
-  }
-}
+// ================= CARD CREATION =================
 
 function createCardHTML(item) {
-  const ratingClass = getRatingClass(item.rating);
-  const badgeHTML = getBadgeHTML(item.badge);
-  const backgroundStyle = item.image ? `style="background-image: url('${item.image}');"` : "";
-  const detailFile = item.type === 'tv' ? `tv-${item.id}.html` : `movie-${item.id}.html`;
-
   return `
-    <a class="card-link" href="${detailFile}">
+    <a class="card-link" href="${getLink(item.title)}">
       <div class="movie-card">
-        <div class="card-image" ${backgroundStyle}>
-          ${badgeHTML}
+        <div class="card-image" style="background-image:url('${item.image}')">
+          ${getBadgeHTML(item.badge)}
         </div>
         <div class="movie-info">
           <h3>${item.title}</h3>
           <p>${item.year} • ${item.genre}</p>
-          <span class="rating ${ratingClass}">⭐ ${item.rating}</span>
+          <span class="rating ${getRatingClass(item.rating)}">⭐ ${item.rating}</span>
         </div>
       </div>
     </a>
   `;
 }
 
-function renderCards(dataArray, targetId) {
+// ================= RENDER FUNCTIONS =================
+
+function renderCards(data, targetId) {
   const container = document.getElementById(targetId);
   if (!container) return;
 
-  let allCardsHTML = "";
-  let i = 0;
-  while (i < dataArray.length) {
-    allCardsHTML += createCardHTML(dataArray[i]);
-    i++;
+  let html = "";
+  for (let i = 0; i < data.length; i++) {
+    html += createCardHTML(data[i]);
   }
 
-  container.innerHTML = allCardsHTML;
+  container.innerHTML = html;
 }
 
-function renderHomepageTrending(dataArray, targetId) {
+function renderHomepageTrending(data, targetId) {
   const container = document.getElementById(targetId);
   if (!container) return;
 
-  let allCardsHTML = "";
-  for (let i = 0; i < dataArray.length; i++) {
-    if (dataArray[i].rating > 8.0) {
-      allCardsHTML += createCardHTML(dataArray[i]);
+  let html = "";
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].rating >= 8) {
+      html += createCardHTML(data[i]);
     }
   }
 
-  container.innerHTML = allCardsHTML;
+  container.innerHTML = html;
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-  renderHomepageTrending(movies, 'trending-grid');
-  renderCards(movies, 'movies-grid');
-  renderCards(tvShows, 'tvshows-grid');
+// ================= INIT =================
+
+window.addEventListener("DOMContentLoaded", function () {
+  renderHomepageTrending(movies, "trending-grid");
+  renderCards(movies, "movies-grid");
+  renderCards(tvShows, "tv-grid");
 });

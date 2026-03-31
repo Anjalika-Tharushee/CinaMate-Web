@@ -215,11 +215,64 @@ nav a.active {
     color: #ffffff;
 }
 
-.pill.active {
+input[name="genre"] {
+    display: none;
+}
+
+#genre-all:checked ~ .genres label[for="genre-all"],
+#genre-action:checked ~ .genres label[for="genre-action"],
+#genre-comedy:checked ~ .genres label[for="genre-comedy"],
+#genre-drama:checked ~ .genres label[for="genre-drama"],
+#genre-horror:checked ~ .genres label[for="genre-horror"],
+#genre-sci-fi:checked ~ .genres label[for="genre-sci-fi"],
+#genre-romance:checked ~ .genres label[for="genre-romance"],
+#genre-animation:checked ~ .genres label[for="genre-animation"],
+#genre-documentary:checked ~ .genres label[for="genre-documentary"],
+#genre-fantasy:checked ~ .genres label[for="genre-fantasy"],
+#genre-adventure:checked ~ .genres label[for="genre-adventure"],
+#genre-thriller:checked ~ .genres label[for="genre-thriller"],
+#genre-crime:checked ~ .genres label[for="genre-crime"] {
     background: linear-gradient(45deg, #e41459, #c44569, #ff6b9d);
     border-color: #ff6b9d;
     color: #ffffff;
     font-weight: 600;
+}
+
+#genre-all:checked ~ .content-section .movie-grid a,
+#genre-all:checked ~ .content-section .featured .card {
+    display: block;
+}
+
+#genre-action:checked ~ .content-section .movie-grid a.genre-action,
+#genre-action:checked ~ .content-section .featured .card.genre-action,
+#genre-comedy:checked ~ .content-section .movie-grid a.genre-comedy,
+#genre-comedy:checked ~ .content-section .featured .card.genre-comedy,
+#genre-drama:checked ~ .content-section .movie-grid a.genre-drama,
+#genre-drama:checked ~ .content-section .featured .card.genre-drama,
+#genre-horror:checked ~ .content-section .movie-grid a.genre-horror,
+#genre-horror:checked ~ .content-section .featured .card.genre-horror,
+#genre-sci-fi:checked ~ .content-section .movie-grid a.genre-sci-fi,
+#genre-sci-fi:checked ~ .content-section .featured .card.genre-sci-fi,
+#genre-romance:checked ~ .content-section .movie-grid a.genre-romance,
+#genre-romance:checked ~ .content-section .featured .card.genre-romance,
+#genre-animation:checked ~ .content-section .movie-grid a.genre-animation,
+#genre-animation:checked ~ .content-section .featured .card.genre-animation,
+#genre-documentary:checked ~ .content-section .movie-grid a.genre-documentary,
+#genre-documentary:checked ~ .content-section .featured .card.genre-documentary,
+#genre-fantasy:checked ~ .content-section .movie-grid a.genre-fantasy,
+#genre-fantasy:checked ~ .content-section .featured .card.genre-fantasy,
+#genre-adventure:checked ~ .content-section .movie-grid a.genre-adventure,
+#genre-adventure:checked ~ .content-section .featured .card.genre-adventure,
+#genre-thriller:checked ~ .content-section .movie-grid a.genre-thriller,
+#genre-thriller:checked ~ .content-section .featured .card.genre-thriller,
+#genre-crime:checked ~ .content-section .movie-grid a.genre-crime,
+#genre-crime:checked ~ .content-section .featured .card.genre-crime {
+    display: block;
+}
+
+.content-section .movie-grid a,
+.featured .card {
+    display: none;
 }
 
 /* CONTENT SECTION */
@@ -252,6 +305,20 @@ nav a.active {
 
 .view-all:hover {
     text-decoration: underline;
+}
+
+.section-note {
+    display: none;
+    margin: 8px 5% 18px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    max-width: 980px;
+    line-height: 1.6;
+}
+
+.content-section:not(:has(.movie-grid a)) .section-note,
+.featured:not(:has(.cards .card)) .section-note {
+    display: block;
 }
 
 /* MOVIE GRID */
@@ -561,10 +628,55 @@ footer {
     color: #ffffff;
     font-weight: 600;
     text-decoration: none;
+    margin-right: 12px;
+    margin-bottom: 10px;
 }
+
+.btn-trailer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 45%, #4ade80 100%);
+    padding: 14px 28px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+    border: 1px solid rgba(255,255,255,0.12);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.btn-trailer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(34, 197, 94, 0.45);
+    filter: brightness(1.05);
+}
+
+.btn-trailer::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    transform: translateX(-1px);
+}
+
 
 .detail-error {
     padding: 40px;
     text-align: center;
     color: #ffffff;
+}
+
+/* FIX: ensure cards visible */
+.content-section .movie-grid a {
+    display: block !important;
+}
+
+.featured .cards .card {
+    display: block !important;
 }
